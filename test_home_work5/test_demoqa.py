@@ -2,6 +2,7 @@ import os
 
 from selene import browser, have
 
+
 # F_NAME = '#firstName'
 # L_NAME = '#lastName'
 # EMAIL = '#userEmail'
@@ -26,7 +27,7 @@ from selene import browser, have
 
 
 def test_fill_form():
-    browser.open('/')
+    browser.open('/automation-practice-form')
     browser.element('#firstName').type('Мистер')
     browser.element('#lastName').type('Твистер')
     browser.element('#userEmail').type('glavniy@ministr.ru')
