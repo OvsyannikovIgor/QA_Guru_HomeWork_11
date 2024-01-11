@@ -1,5 +1,6 @@
 import os
 
+import allure
 from selene import browser, have
 
 F_NAME = '#firstName'
@@ -28,30 +29,36 @@ BODY = ' table > tbody > tr:nth-child(1) > td:nth-child(2)'
 class RegistrationPage():
     def __init__(self):
         pass
-
+    @allure.step('Открытие браузера')
     def open_registration_page(self):
         browser.open('/automation-practice-form')
 
+    @allure.step('Заполнение поля "имя"')
     def fill_first_name(self, value):
         browser.element(F_NAME).type(value)
         return self
 
+    @allure.step('Заполнение поля "фамилия"')
     def fill_last_name(self, value):
         browser.element(L_NAME).type(value)
         return self
 
+    @allure.step('Выбор пола')
     def choice_gender(self):
         browser.element(GENDER_2).double_click()
         return self
 
+    @allure.step('Заполнение поля "email"')
     def fill_email(self, value):
         browser.element(EMAIL).type(value)
         return self
 
+    @allure.step('Заполнение поля "мобильный номер"')
     def fill_user_number(self, value):
         browser.element(MOBILE).type(value)
         return self
 
+    @allure.step('Выбор даты рождения')
     def fill_date_of_birth(self):
         browser.element(BIRTH).click()
         browser.element(MONTH_BIRTH).click()
@@ -59,27 +66,33 @@ class RegistrationPage():
         browser.element(DAY_BIRTH).click()
         return self
 
+    @allure.step('Заполнение поля "предмет"')
     def fill_subjects(self, value):
         browser.element(SUBJECTS).type(value).press_enter()
         return self
 
+    @allure.step('Заполнение поля "адрес"')
     def fill_current_address(self, value):
         browser.element(C_ADDRESS).type(value)
         return self
 
+    @allure.step('Выбор хобби')
     def choice_hobies(self):
         browser.element(HOBBIES_2).click()
         return self
 
+    @allure.step('Выбор государства и города')
     def fill_state(self, state, city):
         browser.element(STATE).type(state).press_enter()
         browser.element(CITY).type(city).press_enter()
         return self
 
+    @allure.step('Загрузка изображения')
     def upload_picture(self):
         browser.element('#uploadPicture').send_keys(os.path.abspath('../resources/picture.png'))
         return self
 
+    @allure.step('Проверка формы регистрации пользователя')
     def should_registered_user_with(self):
         browser.all(' table > tbody > tr').all('td:nth-child(2)').should(
             have.exact_texts('Мистер Твистер',
@@ -93,6 +106,7 @@ class RegistrationPage():
                              'Uttar Pradesh Merrut')
         )
 
+    @allure.step('Клик на кнопку зарегистрироваться')
     def submit_btn(self):
         browser.element(SUBMIT).press_enter()
         return self

@@ -1,6 +1,10 @@
 # User-specific stuff
 # ...
 
+# Allure
+allure-results
+allure
+
 # JetBrains
 .idea/
 *.iml
@@ -29,3 +33,4 @@ __pycache__/
 # Environments
 .venv*
 venv*/
+/allure/
