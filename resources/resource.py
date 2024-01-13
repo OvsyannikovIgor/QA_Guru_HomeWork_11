@@ -2,7 +2,7 @@ import os
 
 import tests
 
-PATH = os.path.join(os.path.dirname(os.path.abspath(tests.__file__)), os.path.pardir, "resources")
+PATH = os.path.join(os.path.dirname(os.path.abspath(tests.__file__)), os.path.pardir, "")
 
 
 def path(file_name):

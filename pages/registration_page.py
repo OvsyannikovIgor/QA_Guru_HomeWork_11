@@ -1,7 +1,7 @@
 import allure
 from selene import browser, have
 
-import resource
+from resources import resource
 from data.user import User
 
 
